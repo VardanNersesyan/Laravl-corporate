@@ -26,17 +26,17 @@ class MenusSeeder extends Seeder
             [
                 'title'  => 'Computers',
                 'path'   => config('app.url') . '/articles/cat/computers',
-                'parent' => 2
+                'parent' => 3
             ],
             [
                 'title'  => 'Interesting',
                 'path'   => config('app.url') . '/articles/cat/iteresting',
-                'parent' => 2
+                'parent' => 3
             ],
             [
                 'title'  => 'Advices',
                 'path'   => config('app.url') . '/articles/cat/advices',
-                'parent' => 2
+                'parent' => 3
             ],
             [
                 'title'  => 'Portfolios',

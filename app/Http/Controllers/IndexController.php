@@ -8,7 +8,7 @@ class IndexController extends SiteController
 {
     public function __construct()
     {
-        parent::__construct(new \Corp\Repositories\MenusRepository(new \Corp\Menu));
+        parent::__construct();
 
         $this->bar = 'right';
         $this->template = config('settings.THEME').'.index';
