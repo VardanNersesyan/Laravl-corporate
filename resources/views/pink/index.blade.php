@@ -1,0 +1,1 @@
+@extends(config('settings.THEME').'.layouts.site')
