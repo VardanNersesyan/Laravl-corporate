@@ -8,10 +8,31 @@ abstract class Repository
 {
     protected $model = FALSE;
 
-    public function get()
+    public function get($select = '*',$take = FALSE)
     {
-        $builder = $this->model->select('*');
+        $builder = $this->model->select($select);
 
-        return $builder->get();
+        if($take) {
+            $builder->take($take);
+        }
+
+        return $this->check($builder->get());
+    }
+
+    protected function check($result)
+    {
+        if($result->isEmpty()) {
+            return FALSE;
+        }
+
+
+        $result->transform(function ($item,$key) {
+            if(is_string($item->img) && is_object(json_decode($item->img)) && (json_last_error() == JSON_ERROR_NONE) ) {
+                $item->img = json_decode($item->img);
+            }
+            return $item;
+        });
+
+        return $result;
     }
 }

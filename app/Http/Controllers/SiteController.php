@@ -29,7 +29,6 @@ class SiteController extends Controller
 
     protected function renderOutput()
     {
-
         $menu = $this->getMenu();
 
         $navigation = view(config('settings.THEME').'.navigation')->with('menu',$menu)->render();
