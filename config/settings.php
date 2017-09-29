@@ -4,7 +4,9 @@ return [
 
     'THEME' => env('THEME', 'pink'),
 
-    'slider_path' => 'slider-cycle'
+    'slider_path' => 'slider-cycle',
+
+    'home_port_count' => 5
 
 ];
 

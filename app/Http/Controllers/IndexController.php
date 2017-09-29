@@ -2,15 +2,17 @@
 
 namespace Corp\Http\Controllers;
 
+use Corp\Repositories\PortfoliosRepository;
 use Corp\Repositories\SlidersRepository;
 use Illuminate\Http\Request;
 
 class IndexController extends SiteController
 {
-    public function __construct(SlidersRepository $s_rep)
+    public function __construct(SlidersRepository $s_rep, PortfoliosRepository $p_rep)
     {
         parent::__construct(new \Corp\Repositories\MenusRepository(new \Corp\Menu));
 
+        $this->p_rep = $p_rep;
         $this->s_rep = $s_rep;
 
         $this->bar = 'right';
@@ -24,12 +26,29 @@ class IndexController extends SiteController
      */
     public function index()
     {
-        $sliderItems = $this->getSliders();
+        $portfolios = $this->getPortfolio();
+        $content = view(config('settings.THEME').'.content')->with('portfolios',$portfolios)->render();
+        $this->vars = array_add($this->vars,'content',$content);
 
+        $sliderItems = $this->getSliders();
         $sliders = view(config('settings.THEME').'.slider')->with('sliders',$sliderItems)->render();
         $this->vars = array_add($this->vars,'sliders',$sliders);
 
         return $this->renderOutput();
+    }
+
+    protected function getPortfolio()
+    {
+        $portfolio = $this->p_rep->get('*',config('settings.home_port_count'));
+
+        if($portfolio->isEmpty()) {
+            return FALSE;
+        }
+
+
+
+
+        return $portfolio;
     }
 
     public function getSliders()
