@@ -25,7 +25,10 @@
     <!-- this line will appear only if the website is visited with an iPad -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes" />
 
-    <title>Pink Rio | A strong, powerful and multiporpose WordPress Theme</title>
+    <meta name="description" content="{{ (isset($meta_desc)) ? $meta_desc : ''}}">
+    <meta name="keywords" content="{{ (isset($keywords)) ? $keywords : ''}}">
+
+    <title>{{ $title or 'pink' }}</title>
 
     <!-- [favicon] begin -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset(config('settings.THEME')) }}/images/favicon.ico" />
@@ -96,7 +99,7 @@
 
                 <!-- START LOGO -->
                 <div id="logo" class="group">
-                    <a href="index.html" title="Pink Rio"><img src="images/logo.png" title="Pink Rio" alt="Pink Rio" /></a>
+                    <a href="{{ route('home') }}" title="Pink Rio"><img src="{{ asset(config('settings.THEME')) }}/images/logo.png" title="Pink Rio" alt="Pink Rio" /></a>
                 </div>
                 <!-- END LOGO -->
 
@@ -126,7 +129,7 @@
 
 
         <!-- START PRIMARY -->
-        <div id="primary" class="sidebar-right">
+        <div id="primary" class="sidebar-{{isset($bar) ? $bar : 'no'}}">
             <div class="inner group">
                 <!-- START CONTENT -->
                 @yield('content')
@@ -140,22 +143,7 @@
         </div>
     <!-- END PRIMARY -->
         <!-- START COPYRIGHT -->
-        <div id="copyright">
-            <div class="inner group">
-                <div class="left">
-                    <a href="http://yithemes.com/?ddownload=2046&ap_id=pinkrio-html"><strong>Download the free version for Wordpress</strong></a>
-                </div>
-                <div class="right">
-                    <a href="#" class="socials-small facebook-small" title="Facebook">facebook</a>
-                    <a href="#" class="socials-small rss-small" title="Rss">rss</a>
-                    <a href="#" class="socials-small twitter-small" title="Twitter">twitter</a>
-                    <a href="#" class="socials-small flickr-small" title="Flickr">flickr</a>
-                    <a href="#" class="socials-small skype-small" title="Skype">skype</a>
-                    <a href="#" class="socials-small google-small" title="Google">google</a>
-                    <a href="#" class="socials-small pinterest-small" title="Pinterest">pinterest</a>
-                </div>
-            </div>
-        </div>
+        @yield('footer')
         <!-- END COPYRIGHT -->
     </div>
     <!-- END WRAPPER -->
