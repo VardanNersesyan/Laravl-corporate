@@ -13,6 +13,10 @@ class SiteController extends Controller
     protected $a_rep;
     protected $m_rep;
 
+    protected $keywords;
+    protected $meta_description;
+    protected $title;
+
     protected $template;
 
     protected $vars = array();
@@ -20,7 +24,7 @@ class SiteController extends Controller
     protected $contentRightBar = FALSE;
     protected $contentLefttBar = FALSE;
 
-    protected $bar = FALSE;
+    protected $bar = 'no';
 
     public function __construct(MenusRepository $m_rep)
     {
@@ -39,6 +43,14 @@ class SiteController extends Controller
             $this->vars = array_add($this->vars,'rightBar',$rightBar);
         }
 
+        $this->vars = array_add($this->vars,'bar',$this->bar);
+
+        $this->vars = array_add($this->vars,'meta_description',$this->meta_description);
+        $this->vars = array_add($this->vars,'title',$this->title);
+        $this->vars = array_add($this->vars,'keywords',$this->keywords);
+
+        $footer = view(config('settings.THEME') . '.footer')->render();
+        $this->vars = array_add($this->vars,'footer',$footer);
         return view($this->template)->with($this->vars);
     }
 
