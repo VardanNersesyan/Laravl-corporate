@@ -24,7 +24,8 @@ class ArticlesController extends SiteController
     {
         $articles = $this->getArticles();
 
-
+        $content = view(config('settings.THEME') . '.articles_content')->with('articles',$articles)->render();
+        $this->vars = array_add($this->vars,'content',$content);
         return $this->renderOutput();
     }
 
