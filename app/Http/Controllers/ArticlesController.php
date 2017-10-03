@@ -32,7 +32,8 @@ class ArticlesController extends SiteController
     public function getArticles($alias = FALSE)
     {
         $articles = $this->a_rep->get([
-            'title', 'alias', 'created_at', 'img', 'desc'
+            'id', 'title', 'alias', 'created_at',
+            'img', 'desc', 'user_id', 'category_id'
         ],FALSE,TRUE);
 
         if($articles) {
