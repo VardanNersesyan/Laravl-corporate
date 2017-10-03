@@ -37,13 +37,12 @@
                 <a href="{{ $articles->previousPageUrl() }}">{{ Lang::get('pagination.previous' ) }}</a>
             @endif
 
-            @for($i = 1; $i < $articles->lastPage(); $i++)
+            @for($i = 1; $i <= $articles->lastPage(); $i++)
                 @if($articles->currentPage() == $i)
                     <a class="selected disabled">{{ $i }}</a>
                 @else
                     <a href="{{ $articles->url($i) }}">{{ $i }}</a>
                 @endif
-
             @endfor
 
             @if($articles->currentPage() !== $articles->lastPage())
