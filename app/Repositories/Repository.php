@@ -8,12 +8,16 @@ abstract class Repository
 {
     protected $model = FALSE;
 
-    public function get($select = '*',$take = FALSE)
+    public function get($select = '*',$take = FALSE,$pagination = FALSE)
     {
         $builder = $this->model->select($select);
 
         if($take) {
             $builder->take($take);
+        }
+
+        if($pagination) {
+            return $this->check($builder->paginate(config('settings.paginate')));
         }
 
         return $this->check($builder->get());
