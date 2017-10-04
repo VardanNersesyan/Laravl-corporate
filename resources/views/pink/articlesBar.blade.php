@@ -1,6 +1,6 @@
 
     <div class="widget-first widget recent-posts">
-        <h3>{{ Lang::get(config('app.locale').'latest_projects') }}</h3>
+        <h3>{{ Lang::get(config('app.locale').'.latest_projects') }}</h3>
         <div class="recent-post group">
             @if(!$portfolios->isEmpty())
                 @foreach($portfolios as $portfolio)
@@ -17,11 +17,30 @@
         </div>
     </div>
 
-    <div class="widget-last widget recent-comments">
-        <h3>Recent Comments</h3>
-        <div class="recent-post recent-comments group">
+    @if(!$comments->isEmpty())
+        <div class="widget-last widget recent-comments">
+            <h3>{{ Lang::get(config('app.locale').'.recent_comments') }}</h3>
 
-            <div class="the-post group">
+            <div class="recent-post recent-comments group">
+                @foreach($comments as $comment)
+                    <div class="the-post group">
+                        <div class="avatar">
+                            @set($hash, ($comment->email) ? md5(strtolower($comment->email)) : md5(strtolower($comment->user->email)))
+                            <img alt="" src="https://www.gravatar.com/avatar/{{ $hash }}?d=mm&s=55" class="avatar" />
+                        </div>
+                        <span class="author"><strong><h3 style="display: inline">{{ isset($comment->user) ? $comment->user->name : $comment->name }}</h3></strong> in</span>
+                        <a class="title" href="{{ route('articles.show',['alias'=>$comment->article->alias]) }}">{{ $comment->article->title }}</a>
+                        <p class="comment">
+                            {{ str_limit($comment->text,130) }} <a class="goto" href="{{ route('articles.show',['alias'=>$comment->article->alias]) }}">&#187;</a>
+                        </p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+
+{{--            <div class="the-post group">
                 <div class="avatar">
                     <img alt="" src="images/avatar/unknow55.png" class="avatar" />
                 </div>
@@ -54,5 +73,5 @@
                 </p>
             </div>
         </div>
-    </div>
+    </div>--}}
 
