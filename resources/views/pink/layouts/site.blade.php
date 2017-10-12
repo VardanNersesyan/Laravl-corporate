@@ -80,6 +80,8 @@
     <script type="text/javascript" src="{{ asset(config('settings.THEME')) }}/js/jquery.colorbox-min.js"></script> <!-- nav -->
     <script type="text/javascript" src="{{ asset(config('settings.THEME')) }}/js/jquery.tweetable.js"></script>
 
+    <script type="text/javascript" src="{{ asset(config('settings.THEME')) }}/js/myscripts.js"></script>
+
 </head>
 <!-- END HEAD -->
 
@@ -125,6 +127,8 @@
 
         <!-- START SLIDER -->
         @yield('slider')
+
+        <div class="wrap_result"></div>
         <!-- END SLIDER -->
 
 
