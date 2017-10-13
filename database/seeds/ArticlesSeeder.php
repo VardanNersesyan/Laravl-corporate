@@ -21,7 +21,7 @@ class ArticlesSeeder extends Seeder
                 'img'        => '{"mini":"003-55x55.jpg ","max":"003-816x282.jpg ","path":"0081-700x345.jpg"}',
                 'created_at' => '2017-09-26 16:50:47',
                 'user_id'    => 1,
-                'category_id'=> 1
+                'category_id'=> 2
             ],
             [
                 'title'      => 'Nice & Clean. The best for your blog!',
@@ -31,7 +31,7 @@ class ArticlesSeeder extends Seeder
                 'img'        => '{"mini":"001-55x55.png ","max":"001-816x282.png ","path":"0081-700x345.jpg"}',
                 'created_at' => '2017-09-26 16:51:47',
                 'user_id'    => 1,
-                'category_id'=> 1
+                'category_id'=> 3
             ],
             [
                 'title'      => 'Section shortcodes & sticky posts!',
@@ -41,7 +41,7 @@ class ArticlesSeeder extends Seeder
                 'img'        => '{"mini":"0037-55x55.jpg ","max":"00212-816x282.jpg ","path":"0081-700x345.jpg"}',
                 'created_at' => '2017-09-26 16:52:47',
                 'user_id'    => 1,
-                'category_id'=> 1
+                'category_id'=> 4
             ],
         ]);
     }

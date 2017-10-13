@@ -28,8 +28,8 @@ class CategoriesSeeder extends Seeder
                 'parent_id' => 1
             ],
             [
-                'title'     => 'Advice',
-                'alias'     => 'advice',
+                'title'     => 'Advices',
+                'alias'     => 'advices',
                 'parent_id' => 1
             ]
         ]);
