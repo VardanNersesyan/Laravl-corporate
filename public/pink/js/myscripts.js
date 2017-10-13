@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
 
         $('.wrap_result').
             css('color','green').
-            text('Save comment').
+            text('Saving comment...').
             fadeIn(500,function () {
                 var data = comParent.serializeArray();
                 $.ajax({
@@ -21,15 +21,39 @@ jQuery(document).ready(function($) {
                     },
                     type:'POST',
                     datatype:'JSON',
-                    success: function () {
-                        
+                    success: function (html) {
+                        if(html.error) {
+                            $('.wrap_result').css('color','red').append('<br/><strong>Error:</strong><br/>' + html.error.join('<br/>'));
+                            $('.wrap_result').delay(2000).fadeOut(500);
+                        }
+                        else if(html.success) {
+                            $('.wrap_result')
+                                .append('<br/><strong>Saved!</strong></strong>')
+                                .delay(2000)
+                                .fadeOut(500, function () {
+                                    if(html.data.parent_id > 0) {
+                                        comParent.parents('div#respond').prev().after('<ul class="children">' + html.comment + '</ul>');
+                                    }
+                                    else {
+                                        if($.contains($('#comments')[0],$('.commentlist')[0])) {
+                                            $('ol.commentlist').append(html.comment);
+                                        }
+                                        else {
+                                            $('#trackbacks').before('<ol class="commentlist group">' + html.comment + '</ol>');
+                                        }
+                                    }
+                                    $('#cancel-comment-reply-link').click();
+                                });
+                        }
                     },
                     error: function () {
-                        
+                        $('.wrap_result').css('color','red').append('<br/><strong>Error:</strong>');
+                        $('.wrap_result').delay(2000).fadeOut(500, function () {
+                            $('#cancel-comment-reply-link').click();
+                        });
                     }
                 });
             });
     });
-
 
 });

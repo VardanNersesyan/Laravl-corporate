@@ -858,8 +858,12 @@ form input[type="text"], form textarea { border: 1px solid #CFCFCF; -webkit-tran
     left: 35%;
     top: 45%;
     width: 300px;
-    height: 80px;
+    height: auto;
     text-align: center;
     display: none;
     z-index: 5005;
+}
+
+.borGreen {
+    border: 2px solid green !important;
 }
