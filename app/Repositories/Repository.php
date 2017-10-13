@@ -8,7 +8,7 @@ abstract class Repository
 {
     protected $model = FALSE;
 
-    public function get($select = '*',$take = FALSE,$pagination = FALSE, $where = FALSE)
+    public function get($select = '*',$take = FALSE,$pagination = FALSE, $where = FALSE, $random = FALSE)
     {
         $builder = $this->model->select($select);
 
@@ -18,6 +18,10 @@ abstract class Repository
 
         if($where) {
             $builder->where($where[0],$where[1]);
+        }
+
+        if($random) {
+            $builder->inRandomOrder();
         }
 
         if($pagination) {
