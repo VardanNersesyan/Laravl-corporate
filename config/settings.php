@@ -10,6 +10,7 @@ return [
     'recent_comments' => 3,
     'recent_portfolios' => 3,
     'other_portfolios' => 6,
+    'admin_email' => 'Nersesyan.V.A@Gmail.com',
 
 ];
 
