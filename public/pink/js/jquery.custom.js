@@ -252,7 +252,7 @@ jQuery( document ).ready( function( $ ) {
     }
     
     //Form fields shadow
-    $( 'form input[type="text"], form textarea' ).focus(function() {
+    $( 'form input[type="text"], form textarea, form input[type="password"]' ).focus(function() {
         if( $( this ).hasClass( 'error' ) ) {
             $( this ).addClass( 'formRed' ).addClass( 'formShadowRed' );
         } else {
@@ -260,7 +260,7 @@ jQuery( document ).ready( function( $ ) {
         } 
     });
     
-    $( 'form input[type="text"], form textarea' ).blur(function() {
+    $( 'form input[type="text"], form textarea, form input[type="password"]' ).blur(function() {
         $( this ).removeClass( 'formBlue' ).removeClass( 'formGrey' ).removeClass( 'formShadowRed' );
     }); 
             
