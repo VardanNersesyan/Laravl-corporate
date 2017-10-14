@@ -40,3 +40,14 @@ Route::get('/login', 'Auth\LoginController@showLoginForm');
 Route::post('/login', 'Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout');
 
+/*
+ * Admin page routes:
+ * */
+
+Route::group(['prefix' => 'admin','middleware'=>'auth'], function() {
+    //admin
+    Route::get('/',['uses'=>'Admin\IndexController@index','as'=>'adminIndex']);
+    //admin/articles
+    Route::resource('/articles','Admin\ArticlesController');
+
+});
