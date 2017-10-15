@@ -683,7 +683,7 @@ input#s { width:73%; padding:5px; }
 .content .contact-form li.on-right { float:right; }
 .content .contact-form li.full { clear:both; float: none; width: 95%; }
 .content .contact-form li.full label { display: block }  
-.content .contact-form li.textarea-field { clear:both; width:auto; float:none; }
+.content .contact-form li.textarea-field {padding-left: 1px; clear:both; width:auto; float:none; }
 .content .contact-form label span.label { font-size:13px; }
 .content .contact-form label span.sublabel { font-family: 'Calibri', 'Droid Sans', Verdana, Arial, sans-serif; font-size: 11px; color: #9C9B9B }  
 .content .contact-form li.text-field input, .content .contact-form li.checkbox-field input, .content .contact-form li.file-field input, .content .contact-form li select, .content .contact-form li textarea { margin-top:10px; padding:10px; }
