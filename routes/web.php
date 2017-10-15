@@ -44,7 +44,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
  * Admin page routes:
  * */
 
-Route::group(['prefix' => 'admin','middleware'=>'auth'], function() {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=>'auth'], function() {
     //admin
     Route::get('/',['uses'=>'Admin\IndexController@index','as'=>'adminIndex']);
     //admin/articles
