@@ -50,14 +50,14 @@ class IndexController extends SiteController
     {
         $articles = $this->a_rep->get([
             'title', 'created_at','img','alias'
-        ],config('settings.home_articles_count'));
+        ],config('settings.home_articles_count'), FALSE, FALSE, FALSE, TRUE);
 
         return $articles;
     }
 
     protected function getPortfolio()
     {
-        $portfolio = $this->p_rep->get('*',config('settings.home_port_count'));
+        $portfolio = $this->p_rep->get('*',config('settings.home_port_count'), FALSE, FALSE, FALSE, TRUE);
 
         if($portfolio->isEmpty()) {
             return FALSE;

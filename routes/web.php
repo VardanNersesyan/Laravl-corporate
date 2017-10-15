@@ -26,7 +26,7 @@ Route::resource('portfolios','PortfolioController',[
 
 Route::resource('articles','ArticlesController',[
     'parameters' => [
-        'articles' => 'ali as'
+        'articles' => 'alias'
     ]
 ]);
 
