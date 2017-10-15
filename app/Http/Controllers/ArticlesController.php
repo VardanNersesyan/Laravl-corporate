@@ -46,7 +46,7 @@ class ArticlesController extends SiteController
     {
         $comments = $this->c_rep->get([
             'text', 'name', 'email', 'site', 'article_id', 'user_id'
-        ],$take);
+        ],$take, FALSE, FALSE, FALSE, TRUE);
 
         if($comments) {
             $comments->load('article','user');
@@ -59,7 +59,7 @@ class ArticlesController extends SiteController
     {
         $portfolios = $this->p_rep->get([
             'title', 'text', 'alias', 'customer', 'img', 'filter_alias'
-        ],$take);
+        ],$take,FALSE, FALSE, FALSE, TRUE);
 
         return $portfolios;
     }
@@ -75,7 +75,7 @@ class ArticlesController extends SiteController
             'id', 'title', 'alias', 'created_at',
             'img', 'desc', 'user_id', 'category_id',
             'keywords', 'meta_desc',
-        ],FALSE,TRUE,$where);
+        ],FALSE,TRUE,$where, FALSE, TRUE);
 
         if($articles) {
             $articles->load('user','category','comments');

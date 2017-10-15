@@ -30,7 +30,7 @@ class PortfolioController extends SiteController
 
     public function getPortfolios($take = FALSE, $paginate = TRUE,$random = FALSE)
     {
-        $portfolios = $this->p_rep->get('*',$take,$paginate,FALSE, $random);
+        $portfolios = $this->p_rep->get('*',$take,$paginate,FALSE, $random, TRUE);
 
         if($portfolios) {
             $portfolios->load('filter');
