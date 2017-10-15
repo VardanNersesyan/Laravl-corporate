@@ -8,9 +8,13 @@ abstract class Repository
 {
     protected $model = FALSE;
 
-    public function get($select = '*',$take = FALSE,$pagination = FALSE, $where = FALSE, $random = FALSE)
+    public function get($select = '*',$take = FALSE,$pagination = FALSE, $where = FALSE, $random = FALSE, $reverse = FALSE)
     {
         $builder = $this->model->select($select);
+
+        if($reverse) {
+            $builder->latest('id');
+        }
 
         if($take) {
             $builder->take($take);
