@@ -11,7 +11,8 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
         "lavary/laravel-menu": "^1.7",
-        "rap2hpoutre/create-user-command": "^0.1.4"
+        "rap2hpoutre/create-user-command": "^0.1.4",
+        "intervention/image": "2.*"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
