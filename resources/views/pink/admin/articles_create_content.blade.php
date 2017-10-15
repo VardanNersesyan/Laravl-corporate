@@ -50,7 +50,7 @@
 
             <li class="textarea-field">
                 <label for="message-contact-us">
-                    <span class="label">Text:</span>
+                    <span class="label">Short description:</span>
                 </label>
                 <div class="input-prepend"><span class="add-on"><i class="icon-pencil"></i></span>
                     {!! Form::textarea('desc', isset($article->desc) ? $article->desc  : old('desc'), ['id'=>'editor','class' => 'form-control','placeholder'=>'Enter the text of page']) !!}
