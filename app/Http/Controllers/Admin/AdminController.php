@@ -11,6 +11,7 @@ class AdminController extends \Corp\Http\Controllers\Controller
 {
     protected $p_rep;
     protected $a_rep;
+    protected $cat_rep;
     protected $user;
     protected $template;
     protected $content = FALSE;
