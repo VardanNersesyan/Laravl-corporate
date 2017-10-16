@@ -79,7 +79,7 @@
         <!-- START PRIMARY -->
 
         @if (count($errors) > 0)
-            <div class="box error-box">
+            <div class="box error-box content">
 
                 @foreach ($errors->all() as $error)
                     <p>{{ $error }}</p>
@@ -89,13 +89,15 @@
         @endif
 
         @if (session('status'))
-            <div class="box success-box">
-                {{ session('status') }}
+            <div class="row">
+                <div class="box success-box manual-centre">
+                    {{ session('status') }}
+                </div>
             </div>
         @endif
 
         @if (session('error'))
-            <div class="box error-box">
+            <div class="box error-box manual-centre">
                 {{ session('error') }}
             </div>
         @endif

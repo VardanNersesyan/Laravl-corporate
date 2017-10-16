@@ -867,3 +867,8 @@ form input[type="password"], form input[type="text"], form textarea { border: 1p
 .borGreen {
     border: 2px solid green !important;
 }
+
+.manual-centre {
+    width: 64%;
+    margin: 0 auto !important;
+}
