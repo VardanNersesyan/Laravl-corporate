@@ -1,7 +1,7 @@
 @if($articles)
     <div id="content-page" class="content group">
         <div class="hentry group">
-            <h2>Add article</h2>
+            <h2>Articles</h2>
             <div class="short-table white">
                 <table style="width: 100%" cellspacing="0" cellpadding="0">
                     <thead>
@@ -42,7 +42,7 @@
                 </table>
             </div>
 
-            {!! Html::link(route('admin.articles.create'),'Добавить  материал',['class' => 'btn btn-the-salmon-dance-3']) !!}
+            {!! Html::link(route('admin.articles.create'),'Add article',['class' => 'btn btn-the-salmon-dance-3']) !!}
 
 
         </div>
