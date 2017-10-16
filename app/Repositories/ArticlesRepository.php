@@ -147,4 +147,23 @@ class ArticlesRepository extends Repository
             return ['error'=>'Error material not updated'];
         }
     }
+
+    public function deleteArticle($article)
+    {
+        if(Gate::denies('destroy', $article)) {
+            abort(403);
+        }
+
+        $article->comments()->delete();
+
+        /*
+         * TODO add delete old article img system
+         * */
+
+        if($article->delete()) {
+            return ['status'=>'Material deleted'];
+        } else {
+            return ['error'=>'Error material not deleted'];
+        }
+    }
 }

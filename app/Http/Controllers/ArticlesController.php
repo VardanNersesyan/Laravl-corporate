@@ -91,10 +91,13 @@ class ArticlesController extends SiteController
         if($article) {
             $article->img = json_decode($article->img);
         }
-
-        $this->title = $article->title;
-        $this->keywords = $article->keywords;
-        $this->meta_description = $article->meta_desc;
+        if(isset($article->id)) {
+            $this->title = $article->title;
+            $this->keywords = $article->keywords;
+            $this->meta_description = $article->meta_desc;
+        } else {
+            return redirect(route('articles.index'));
+        }
 
         $content = view(config('settings.THEME').'.article_content')->with('article',$article)->render();
         $this->vars = array_add($this->vars,'content',$content);
