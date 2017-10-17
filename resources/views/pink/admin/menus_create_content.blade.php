@@ -34,7 +34,7 @@
 
         <div id="accordion">
 
-            <h3>{!! Form::radio('type', 'customLink',(isset($type) && $type == 'customLink') ? TRUE : FALSE,['class' => 'radioMenu', 'checked'=>'checked']) !!}
+            <h3>{!! Form::radio('type', 'customLink',(isset($type) && $type == 'customLink') ? TRUE : FALSE,['class' => 'radioMenu', 'checked' => !isset($type) ? TRUE : FALSE]) !!}
                 <span class="label">Manual link:</span></h3>
 
             <ul>
@@ -159,5 +159,14 @@
                 obj.newPanel.prev().find('input[type=radio]').attr('checked','checked');
             }
         });
+
+        var active = 0;
+        $('#accordion input[type=radio]').each(function (index,it) {
+            if($(this).prop('checked')) {
+                active = index;
+            }
+        });
+
+        $('#accordion').accordion('option', 'active', active);
     })
 </script>
