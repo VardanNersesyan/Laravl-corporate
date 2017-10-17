@@ -1,6 +1,6 @@
 <div id="content-page" class="content group">
     <div class="hentry group">
-        <h3 class="title_page">Пользователи</h3>
+        <h3 class="title_page">Users</h3>
 
 
         <div class="short-table white">
@@ -11,7 +11,7 @@
                 <th>Email</th>
                 <th>Login</th>
                 <th>Role</th>
-                <th>Удалить</th>
+                <th>Delete</th>
                 </thead>
                 @if($users)
 
@@ -28,7 +28,7 @@
                             <td>
                                 {!! Form::open(['url' => route('admin.users.destroy',['users'=> $user->id]),'class'=>'form-horizontal','method'=>'POST']) !!}
                                 {{ method_field('DELETE') }}
-                                {!! Form::button('Удалить', ['class' => 'btn btn-french-5','type'=>'submit']) !!}
+                                {!! Form::button('Delete', ['class' => 'btn btn-french-5','type'=>'submit']) !!}
                                 {!! Form::close() !!}
 
                             </td>
@@ -38,6 +38,6 @@
                 @endif
             </table>
         </div>
-        {!! Html::link(route('admin.users.create'),'Добавить  пользователя',['class' => 'btn btn-the-salmon-dance-3']) !!}
+        {!! Html::link(route('admin.users.create'),'Add new user',['class' => 'btn btn-the-salmon-dance-3']) !!}
 
     </div></div>
