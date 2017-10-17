@@ -49,7 +49,7 @@ class AdminController extends \Corp\Http\Controllers\Controller
     {
         return Menu::make('adminMenu', function($menu) {
 
-            if(Gate::allows('VIEW_ADMIN_ARTICLES')) {
+            if(Gate::allows('VIEW_ARTICLES')) {
                 $menu->add('Articles', array('route' => 'admin.articles.index'));
             }
             /*

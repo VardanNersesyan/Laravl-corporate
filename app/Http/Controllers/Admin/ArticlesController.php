@@ -30,7 +30,7 @@ class ArticlesController extends AdminController
      */
     public function index()
     {
-        if(Gate::denies('VIEW_ADMIN_ARTICLES')) {
+        if(Gate::denies('VIEW_ARTICLES')) {
             abort(403);
         }
 
@@ -44,7 +44,7 @@ class ArticlesController extends AdminController
 
     public function getArticles()
     {
-        return $this->a_rep->get();
+        return $this->a_rep->get('*',FALSE,FALSE,FALSE,FALSE,TRUE);
     }
 
     /**
@@ -54,7 +54,7 @@ class ArticlesController extends AdminController
      */
     public function create()
     {
-        if(Gate::denies('save', new Article)) {
+        if(Gate::denies('VIEW_ARTICLES')) {
             abort(403);
         }
 
@@ -117,7 +117,7 @@ class ArticlesController extends AdminController
      */
     public function edit(Article $article)
     {
-        if(Gate::denies('edit', new Article)) {
+        if(Gate::denies('VIEW_ARTICLES')) {
             abort(403);
         }
 

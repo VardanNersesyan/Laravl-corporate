@@ -33,7 +33,7 @@ class MenusController extends AdminController
      */
     public function index()
     {
-        if(Gate::denies('VIEW_ADMIN_MENU')) {
+        if(Gate::denies('VIEW_MENU')) {
             abort(403);
         }
 

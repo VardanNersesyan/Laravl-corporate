@@ -6,23 +6,23 @@
         <ul>
             <li class="text-field">
                 <label for="name-contact-us">
-                    <span class="label">Имя:</span>
+                    <span class="label">Name:</span>
                     <br />
-                    <span class="sublabel">Имя</span><br />
+                    <span class="sublabel">Name</span><br />
                 </label>
-                <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span>
-                    {!! Form::text('name',isset($user->name) ? $user->name  : old('name'), ['placeholder'=>'Введите название страницы']) !!}
+                <div class="input-prepend">
+                    {!! Form::text('name',isset($user->name) ? $user->name  : old('name'), ['placeholder'=>'Insert name']) !!}
                 </div>
             </li>
 
             <li class="text-field">
                 <label for="name-contact-us">
-                    <span class="label">Логин:</span>
+                    <span class="label">Login:</span>
                     <br />
-                    <span class="sublabel">Логин</span><br />
+                    <span class="sublabel">Login</span><br />
                 </label>
-                <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span>
-                    {!! Form::text('login',isset($user->login) ? $user->login  : old('login'), ['placeholder'=>'Введите название страницы']) !!}
+                <div class="input-prepend">
+                    {!! Form::text('login',isset($user->login) ? $user->login  : old('login'), ['placeholder'=>'Insert login']) !!}
                 </div>
             </li>
 
@@ -32,38 +32,38 @@
                     <br />
                     <span class="sublabel">Email</span><br />
                 </label>
-                <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span>
-                    {!! Form::text('email',isset($user->email) ? $user->email  : old('email'), ['placeholder'=>'Введите название страницы']) !!}
+                <div class="input-prepend">
+                    {!! Form::text('email',isset($user->email) ? $user->email  : old('email'), ['placeholder'=>'Insert email']) !!}
                 </div>
             </li>
 
             <li class="text-field">
                 <label for="name-contact-us">
-                    <span class="label">Пароль:</span>
+                    <span class="label">Password:</span>
                     <br />
-                    <span class="sublabel">Пароль</span><br />
+                    <span class="sublabel">Password</span><br />
                 </label>
-                <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span>
+                <div class="input-prepend">
                     {!! Form::password('password') !!}
                 </div>
             </li>
 
             <li class="text-field">
                 <label for="name-contact-us">
-                    <span class="label">Повтор пароля:</span>
+                    <span class="label">Confirm password:</span>
                     <br />
-                    <span class="sublabel">Повтор пароля</span><br />
+                    <span class="sublabel">Confirm password</span><br />
                 </label>
-                <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span>
+                <div class="input-prepend">
                     {!! Form::password('password_confirmation') !!}
                 </div>
             </li>
 
             <li class="text-field">
                 <label for="name-contact-us">
-                    <span class="label">Роль:</span>
+                    <span class="label">Role:</span>
                     <br />
-                    <span class="sublabel">Роль</span><br />
+                    <span class="sublabel">Role</span><br />
                 </label>
                 <div class="input-prepend">
 
@@ -82,7 +82,7 @@
             @endif
 
             <li class="submit-button">
-                {!! Form::button('Сохранить', ['class' => 'btn btn-the-salmon-dance-3','type'=>'submit']) !!}
+                {!! Form::button('Save', ['class' => 'btn btn-the-salmon-dance-3','type'=>'submit']) !!}
             </li>
 
         </ul>
