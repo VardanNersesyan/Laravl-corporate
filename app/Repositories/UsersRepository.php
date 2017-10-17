@@ -59,7 +59,7 @@ class UsersRepository extends Repository
         $user->fill($data)->update();
         $user->roles()->sync([$data['role_id']]);
 
-        return ['status' => 'Пользователь изменен'];
+        return ['status' => 'User was changed'];
 
     }
 
@@ -73,7 +73,7 @@ class UsersRepository extends Repository
         $user->roles()->detach();
 
         if($user->delete()) {
-            return ['status' => 'Пользователь удален'];
+            return ['status' => 'User was deleted'];
         }
     }
 
