@@ -2,6 +2,7 @@
 
 namespace Corp\Http\Controllers\Admin;
 
+use Gate;
 use Illuminate\Http\Request;
 use Corp\Http\Controllers\Controller;
 use Auth;
@@ -47,10 +48,17 @@ class AdminController extends \Corp\Http\Controllers\Controller
     public function getMenu()
     {
         return Menu::make('adminMenu', function($menu) {
-            $menu->add('Articles', array('route' => 'admin.articles.index'));
+
+            if(Gate::allows('VIEW_ADMIN_ARTICLES')) {
+                $menu->add('Articles', array('route' => 'admin.articles.index'));
+            }
+            /*
+             * todo same for all menu partitions
+             * */
+
             $menu->add('Portfolio',  array('route'  => 'admin.articles.index'));
             $menu->add('Menu',  array('route'  => 'admin.menus.index'));
-            $menu->add('Users',  array('route'  => 'admin.articles.index'));
+            $menu->add('Users',  array('route'  => 'admin.users.index'));
             $menu->add('Access',  array('route'  => 'admin.permissions.index'));
         });
     }
