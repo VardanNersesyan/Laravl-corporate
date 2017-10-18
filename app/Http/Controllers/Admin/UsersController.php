@@ -31,7 +31,7 @@ class UsersController extends AdminController
      */
     public function index()
     {
-        if (Gate::denies('VIEW_ADMIN_USERS')) {
+        if (Gate::denies('VIEW_USERS')) {
             abort(403);
         }
 
@@ -49,6 +49,10 @@ class UsersController extends AdminController
      */
     public function create()
     {
+        if (Gate::denies('VIEW_USERS')) {
+            abort(403);
+        }
+
         $this->title =  'New user';
 
         $roles = $this->getRoles()->reduce(function ($returnRoles, $role) {
@@ -99,6 +103,10 @@ class UsersController extends AdminController
      */
     public function edit(User $user)
     {
+        if (Gate::denies('VIEW_USERS')) {
+            abort(403);
+        }
+
         $this->title =  'Edit user - '. $user->name;
 
         $roles = $this->getRoles()->reduce(function ($returnRoles, $role) {
@@ -109,7 +117,6 @@ class UsersController extends AdminController
         $this->content = view(config('settings.THEME').'.admin.users_create_content')->with(['roles'=>$roles,'user'=>$user])->render();
 
         return $this->renderOutput();
-
     }
 
     /**
