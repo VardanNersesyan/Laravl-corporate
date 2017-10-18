@@ -52,14 +52,22 @@ class AdminController extends \Corp\Http\Controllers\Controller
             if(Gate::allows('VIEW_ARTICLES')) {
                 $menu->add('Articles', array('route' => 'admin.articles.index'));
             }
-            /*
-             * todo same for all menu partitions
-             * */
 
-            $menu->add('Portfolio',  array('route'  => 'admin.articles.index'));
-            $menu->add('Menu',  array('route'  => 'admin.menus.index'));
-            $menu->add('Users',  array('route'  => 'admin.users.index'));
-            $menu->add('Access',  array('route'  => 'admin.permissions.index'));
+            /*if(Gate::allows('VIEW_PORTFOLIO')) {
+                $menu->add('Portfolio',  array('route'  => 'admin.articles.index'));
+            }*/
+
+            if(Gate::allows('VIEW_MENU_PAGE')) {
+                $menu->add('Menu',  array('route'  => 'admin.menus.index'));
+            }
+
+            if(Gate::allows('VIEW_USERS')) {
+                $menu->add('Users',  array('route'  => 'admin.users.index'));
+            }
+
+            if(Gate::allows('VIEW_ACCESS')) {
+                $menu->add('Access',  array('route'  => 'admin.permissions.index'));
+            }
         });
     }
 }

@@ -65,7 +65,7 @@ class UsersRepository extends Repository
 
     public function deleteUser($user) {
 
-        if (Gate::denies('edit',$this->model)) {
+        if (Gate::denies('delete',$this->model)) {
             abort(403);
         }
 

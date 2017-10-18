@@ -21,11 +21,16 @@ class UserPolicy
 
     public function create(User $user)
     {
-        return $user->can('EDIT_USERS');
+        return $user->canDo('CREATE_USERS');
     }
 
     public function edit(User $user)
     {
-        return $user->can('EDIT_USERS');
+        return $user->canDo('EDIT_USERS');
+    }
+
+    public function delete(User $user)
+    {
+        return $user->canDo('DELETE_USERS');
     }
 }
