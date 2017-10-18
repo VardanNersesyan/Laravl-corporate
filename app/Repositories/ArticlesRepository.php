@@ -115,6 +115,9 @@ class ArticlesRepository extends Repository
             $image = $request->file('image');
 
             if($image->isValid()) {
+                if(isset($article->img)) {
+                    $this->delImg(json_decode($article->img),'articles');
+                }
                 $str = str_random(8);
 
                 $obj = new \stdClass;
@@ -156,9 +159,7 @@ class ArticlesRepository extends Repository
 
         $article->comments()->delete();
 
-        /*
-         * TODO add delete old article img system
-         * */
+        $this->delImg(json_decode($article->img),'articles');
 
         if($article->delete()) {
             return ['status'=>'Material deleted'];

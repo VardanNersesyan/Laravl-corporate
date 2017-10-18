@@ -103,8 +103,7 @@ class MenusRepository extends Repository
 
             default:
                 /*
-                 * TODO
-                 * change default function
+                 * TODO change default function
                  * */
                 $data['path'] = route('home');
         }
