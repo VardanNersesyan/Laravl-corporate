@@ -114,6 +114,9 @@ class PortfoliosRepository extends Repository {
             $image = $request->file('image');
 
             if($image->isValid()) {
+                if(isset($portfolio->img)) {
+                    $this->delImg(json_decode($portfolio->img),'projects');
+                }
                 $str = str_random(8);
 
                 $obj = new \stdClass;
@@ -125,15 +128,15 @@ class PortfoliosRepository extends Repository {
 
                 $img->fit(Config::get('settings.image')['width'],
                     Config::get('settings.image')['height'])
-                    ->save(public_path().'/'.Config::get('settings.THEME').'/images/articles/'.$obj->path);
+                    ->save(public_path().'/'.Config::get('settings.THEME').'/images/projects/'.$obj->path);
 
                 $img->fit(Config::get('settings.articles_img')['max']['width'],
                     Config::get('settings.articles_img')['max']['height'])
-                    ->save(public_path().'/'.Config::get('settings.THEME').'/images/articles/'.$obj->max);
+                    ->save(public_path().'/'.Config::get('settings.THEME').'/images/projects/'.$obj->max);
 
                 $img->fit(Config::get('settings.articles_img')['mini']['width'],
                     Config::get('settings.articles_img')['mini']['height'])
-                    ->save(public_path().'/'.Config::get('settings.THEME').'/images/articles/'.$obj->mini);
+                    ->save(public_path().'/'.Config::get('settings.THEME').'/images/projects/'.$obj->mini);
 
                 $data['img'] = json_encode($obj);
             }
@@ -154,9 +157,9 @@ class PortfoliosRepository extends Repository {
             abort(403);
         }
 
-        /*
-         * TODO add delete old portfolio img system
-         * */
+        if(isset($portfolio->img)) {
+            $this->delImg(json_decode($portfolio->img),'projects');
+        }
 
         if($portfolio->delete()) {
             return ['status'=>'Material deleted'];

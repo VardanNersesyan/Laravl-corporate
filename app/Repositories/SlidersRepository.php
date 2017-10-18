@@ -68,10 +68,8 @@ class SlidersRepository extends Repository
             if($image->isValid()) {
                 $data['img'] = str_random(8) . '.jpg';
                 if(isset($data['old_image'])) {
-                    $delRes = $this->delImg($data['old_image'],'slider-cycle');
-                    if($delRes) {
-                        unset($data['old_image']);
-                    }
+                    $this->delImg($data['old_image'],'slider-cycle');
+                    unset($data['old_image']);
                 }
 
                 $img = Image::make($image);
@@ -96,9 +94,7 @@ class SlidersRepository extends Repository
             abort(403);
         }
 
-        /*
-         * TODO add delete old slider img system
-         * */
+        $this->delImg($slider->img,'slider-cycle');
 
         if($slider->delete()) {
             return ['status'=>'Material deleted'];

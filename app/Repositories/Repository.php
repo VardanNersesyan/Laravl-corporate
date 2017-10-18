@@ -112,8 +112,12 @@ abstract class Repository
 
     public function delImg($fileNeme, $dir)
     {
-        if(File::delete(public_path().'/'.Config::get('settings.THEME').'/images/'.$dir.'/'.$fileNeme)) {
-            return TRUE;
+        if (is_object($fileNeme)) {
+            foreach ($fileNeme as $file) {
+                File::delete(public_path().'/'.Config::get('settings.THEME').'/images/'.$dir.'/'.$file);
+            }
+        } else {
+            File::delete(public_path().'/'.Config::get('settings.THEME').'/images/'.$dir.'/'.$fileNeme);
         }
     }
 }
