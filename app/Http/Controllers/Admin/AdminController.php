@@ -58,7 +58,7 @@ class AdminController extends \Corp\Http\Controllers\Controller
             }
 
             if(Gate::allows('VIEW_SLIDER')) {
-                $menu->add('Portfolio',  array('route'  => 'admin.portfolios.index'));
+                $menu->add('Slider',  array('route'  => 'admin.slider.index'));
             }
 
             if(Gate::allows('VIEW_MENU_PAGE')) {

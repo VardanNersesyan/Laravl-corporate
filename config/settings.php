@@ -27,6 +27,10 @@ return [
         'max' => ['width'=>770,'height'=>368],
         'mini'=> ['width'=>175,'height'=>175],
     ],
+    'slider_img' => [
+        'width' => 1920,
+        'height'=> 483,
+    ],
 
 ];
 
