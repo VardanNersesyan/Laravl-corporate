@@ -16,7 +16,7 @@
                         <a class="thumb"><img src="{{asset(config('settings.THEME'))}}/images/projects/{{ $portfolio->img->max }}" alt="" title="{{ $portfolio->title }}" /></a>
                     </div>
                     <div class="work-description">
-                        <p>{{ $portfolio->text }}</p>
+                        {!!   $portfolio->text !!}
                         <div class="clear"></div>
                         <div class="work-skillsdate">
                             <p class="skills"><span class="label">Filter:</span> {{ $portfolio->filter->title }}</p>

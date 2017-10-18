@@ -37,6 +37,10 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('users', function($value) {
             return \Corp\User::find($value);
         });
+
+        Route::bind('portfolio', function($value) {
+            return \Corp\Portfolio::where('alias',$value)->first();
+        });
     }
 
     /**

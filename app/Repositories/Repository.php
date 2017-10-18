@@ -2,6 +2,7 @@
 
 namespace Corp\Repositories;
 use Config;
+use File;
 
 
 abstract class Repository
@@ -107,5 +108,12 @@ abstract class Repository
         $str = preg_replace('/(\s|[^A-Za-z0-9\-])+/','-', $str);
         $str = trim($str,'-');
         return $str;
+    }
+
+    public function delImg($fileNeme, $dir)
+    {
+        if(File::delete(public_path().'/'.Config::get('settings.THEME').'/images/'.$dir.'/'.$fileNeme)) {
+            return TRUE;
+        }
     }
 }
