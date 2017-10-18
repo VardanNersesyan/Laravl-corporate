@@ -30,7 +30,7 @@ class PermissionsController extends AdminController
      */
     public function index()
     {
-        if (Gate::denies('EDIT_USERS')) {
+        if (Gate::denies('VIEW_ACCESS')) {
             abort(403);
         }
 

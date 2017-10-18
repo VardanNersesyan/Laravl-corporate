@@ -33,7 +33,7 @@ class MenusController extends AdminController
      */
     public function index()
     {
-        if(Gate::denies('VIEW_MENU')) {
+        if(Gate::denies('VIEW_MENU_PAGE')) {
             abort(403);
         }
 
@@ -71,6 +71,10 @@ class MenusController extends AdminController
      */
     public function create()
     {
+        if(Gate::denies('VIEW_MENU_PAGE')) {
+            abort(403);
+        }
+
         $this->title = 'New menu partition';
 
         $tmp = $this->getMenus()->roots();
@@ -150,6 +154,10 @@ class MenusController extends AdminController
      */
     public function edit(\Corp\Menu $menu)
     {
+        if(Gate::denies('VIEW_MENU_PAGE')) {
+            abort(403);
+        }
+
         $this->title = 'Edit menu partition - ' . $menu->title;
 
         $type = FALSE;
