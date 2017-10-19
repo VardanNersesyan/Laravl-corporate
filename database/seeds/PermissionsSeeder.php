@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Corp\Permission;
 
-class PermissionsSeed extends Seeder
+class PermissionsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
