@@ -18,5 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CommentsSeeder::class);
         $this->call(SlidersSeeder::class);
         $this->call(MenusSeeder::class);
+        $this->call(PermissionsSeed::class);
+        $this->call(RoleSeed::class);
     }
 }
