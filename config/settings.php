@@ -2,10 +2,6 @@
 
 return [
 
-    /*
-     * todo use env() for settings
-     * */
-
     'THEME' => env('THEME', 'pink'),
     'slider_path' => 'slider-cycle',
     'home_port_count' => 5,
@@ -14,7 +10,7 @@ return [
     'recent_comments' => 3,
     'recent_portfolios' => 3,
     'other_portfolios' => 6,
-    'admin_email' => 'Nersesyan.V.A@Gmail.com',
+    'admin_email' => env('ADMIN_EMAIL', 'Nersesyan.V.A@Gmail.com'),
     'articles_img' => [
         'max' => ['width'=>816,'height'=>282],
         'mini'=> ['width'=>55,'height'=>55]
