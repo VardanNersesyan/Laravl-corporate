@@ -72,6 +72,8 @@ class AdminController extends \Corp\Http\Controllers\Controller
             if(Gate::allows('VIEW_ACCESS')) {
                 $menu->add('Access',  array('route'  => 'admin.permissions.index'));
             }
+
+            $menu->add('Logout',  array('route'  => 'logout'));
         });
     }
 }
