@@ -14,8 +14,8 @@ class ChangeCategoriesTable2 extends Migration
     public function up()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->string('keywords');
-            $table->string('meta_desc');
+            $table->string('keywords')->nullable();
+            $table->string('meta_desc')->nullable();
         });
     }
 
